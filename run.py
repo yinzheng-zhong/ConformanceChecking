@@ -26,4 +26,5 @@ if __name__ == '__main__':
         if cc.verify_trace(trace) is True:
             num_passed += 1
 
-    print('The percentage of traces passed the conformance checking is ', num_passed / num_traces)
+    print('The percentage of traces passed the conformance checking is', num_passed, '/', num_traces, '=',
+          num_passed / num_traces)

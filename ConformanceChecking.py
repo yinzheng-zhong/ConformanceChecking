@@ -69,7 +69,7 @@ class ConformanceChecking:
             start = self._get_init_marking()
             for i in range(len(trace)):
                 if self.dfs([], [start], trace[i]) is not True:
-                    print('Failed to find path from ', trace[start], ' to ', trace[i], '.')
+                    print('Failed to find path from', self.id_label(start), 'to', trace[i], '.')
                     return False
                 start = self.label_id(trace[i])
         else:

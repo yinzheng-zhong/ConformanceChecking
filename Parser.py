@@ -17,9 +17,9 @@ class EventLogParser:
                            index_col=False,
                            low_memory=False)
 
-    def get_num_cases(self):
-        case_ids = self.event_log[self.CASE_ID_COLUMN_NAME].values
-        return np.max(case_ids)
+    def get_cases_ids(self):
+        case_ids = self.event_log[self.CASE_ID_COLUMN_NAME].unique()
+        return case_ids
 
     def get_trace(self, case_id):
         case = self.event_log.loc[self.event_log['Case_ID'] == case_id].values

@@ -19,12 +19,13 @@ if __name__ == '__main__':
     nodes = pnet_parser.get_nodes()
     cc = ConformanceChecking(nodes, edges)
 
-    num_traces = event_log_parser.get_num_cases()
-    for i in range(num_traces):
+    ids = event_log_parser.get_cases_ids()
+    num_ids = len(ids)
+    for i in ids:
         trace = event_log_parser.get_trace(i)
 
         if cc.verify_trace(trace) is True:
             num_passed += 1
 
-    print('The percentage of traces passed the conformance checking is ' + str(num_passed)+'/'+str(num_traces), '=',
-          num_passed / num_traces)
+    print('The percentage of traces passed the conformance checking is ' + str(num_passed)+'/'+str(num_ids), '=',
+          num_passed / num_ids)

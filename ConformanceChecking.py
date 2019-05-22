@@ -1,5 +1,4 @@
 import numpy as np
-from Tools import Tools
 
 
 class ConformanceChecking:
@@ -21,7 +20,7 @@ class ConformanceChecking:
         Find the id of the initial marking
         :return: id. Type=int
         """
-        index = np.argwhere(self.nodes[self.NODE_LABEL] == 'initial_marking')[0, 0]
+        index = np.argwhere(self.nodes[self.NODE_LABEL] == 'init_marking')[0, 0]
         return self.nodes[self.NODE_ID][index]
 
     def check_event_observed(self, trace):

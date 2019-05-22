@@ -75,12 +75,12 @@ class PNetParser:
         places[self.DIC_KEY_LABEL].extend(transitions[self.DIC_KEY_LABEL])
 
         node = {self.DIC_KEY_ID: np.asarray(places[self.DIC_KEY_ID], dtype=np.int16),
-                self.DIC_KEY_LABEL: np.asarray(places[self.DIC_KEY_LABEL])}
+                self.DIC_KEY_LABEL: np.asarray(places[self.DIC_KEY_LABEL], dtype=np.dtype('<U32'))}
 
         init_marking_index = np.argwhere(node[self.DIC_KEY_ID] == 1)[0, 0]
         final_marking_index = np.argwhere(node[self.DIC_KEY_ID] == self._get_final_marking())[0, 0]
 
-        node[self.DIC_KEY_LABEL][init_marking_index] = 'initial_marking'
+        node[self.DIC_KEY_LABEL][init_marking_index] = 'init_marking'
         node[self.DIC_KEY_LABEL][final_marking_index] = 'final_marking'
 
         return node
